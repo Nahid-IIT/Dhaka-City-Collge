@@ -11,12 +11,12 @@ struct Student {
 // Function to sort students by merit (CGPA) in descending order
 void sortByMerit(struct Student students[], int n) {
     struct Student temp;
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (students[j].cgpa < students[j + 1].cgpa) {
-                temp = students[j];
-                students[j] = students[j + 1];
-                students[j + 1] = temp;
+    for (int i = 0; i < n ; i++) {
+        for (int j = i+1; j < n-1; j++) {
+            if (students[i].cgpa >  students[j].cgpa) {
+                temp = students[i];
+                students[i] = students[j];
+                students[j] = temp;
             }
         }
     }
@@ -50,7 +50,7 @@ int main() {
     printf("\nStudent information sorted by merit (CGPA):\n");
     printf("Rank\tName\t\tID\tCGPA\n");
     for (int i = 0; i < n; i++) {
-        printf("%d\t%-15s\t%d\t%.2f\n", i + 1, students[i].name, students[i].id, students[i].cgpa);
+        printf("%d\t%s\t%d\t%.2f\n", i + 1, students[i].name, students[i].id, students[i].cgpa);
     }
 
     return 0;
